@@ -1,6 +1,5 @@
 :root {
-    --blue: #19dcfeda;
-    --azul: #19B5FE;
+    --blue: #1be2fcda;
     --dark: #222222;
     --dark2: #393939;
     --gray:  #b1b1b1;
@@ -18,6 +17,10 @@ body{
     background-color: var(--dark2);
 }
 
+hr {
+    border: 1px solid var(--dark);   
+}
+
 .topline {
     color: var(--light);
     font-size: clamp(2rem, 6vw, 3rem);
@@ -31,7 +34,7 @@ body{
     margin-bottom: 1.5rem;
 }
 
-/* Navbar */
+/* navbar */
 .navbar {
     background-color: var(--dark);
     height: 60px;
@@ -52,6 +55,7 @@ body{
     color: var(--light);
     text-decoration: none;
     padding: 0 1rem;
+    transition: all 0.3s ease-in-out;
 }
 
 .navbar-link:hover {
@@ -120,7 +124,7 @@ body{
     }
 }
 
-/* Hero section */
+/* hero section */
 .hero {
     background: url('img/hero.jpg');
     height: 100vh;
@@ -246,6 +250,7 @@ body{
     font-size: 2rem;
     color: var(--gray);
     margin: 0px 6px;
+    transition: all 0.3s ease-in-out;
 }
 
 .card .body .links a:hover {
@@ -255,5 +260,118 @@ body{
 @media screen and (max-width: 768px) {
     .projects-list {
         grid-template-columns: 1fr;
+    }
+}
+
+/* pictures section */
+.pictures {
+    padding: 5rem calc((100vw - 1200px) / 2);
+    color: var(--light);
+}
+
+.pictures .container {
+    padding: 1rem;
+}
+
+.gallery .gallery-item {
+    margin: 0.5rem;
+}
+
+.gallery .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media screen and (min-width: 640px) {
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 300px);
+        grid-auto-flow: row dense;
+    }
+
+    .gallery-item {
+        margin: 0.7rem;
+    }
+    
+    .gallery-item:first-child {
+        grid-row: span 1;
+    }
+    
+    .gallery-item:nth-child(2) {
+        grid-column: 2 / 3;
+        grid-row: span 2;
+    }
+    
+    .gallery-item:nth-child(6),
+    .gallery-item:nth-child(8) {
+        grid-row: span 2;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .gallery {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(3, grid-auto-flow);
+        grid-auto-flow: row dense;
+    }
+    
+    .gallery-item:nth-child(2) {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+    
+    .gallery-item:first-child,
+    .gallery-item:nth-child(7),
+    .gallery-item:nth-child(8) {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+}
+/* footer */
+footer {
+    padding: 3.5rem calc((100vw - 1200px) / 2);
+    color: var(--gray);
+    background-color: var(--dark);
+    text-align: center;
+}
+
+footer h1 {
+    border-bottom: 1px solid var(--gray);
+    padding-bottom: 3rem;
+}
+
+.socials {
+    display: flex;
+    justify-content: space-around;
+    padding: 0rem 5rem;
+    margin-top: 3rem;
+}
+
+.socials a {
+    text-decoration: none;
+    color: var(--gray);
+    font-size: 1.1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.socials a:hover {
+    color: var(--blue);
+}
+
+.socials a span {
+    font-size: 5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .socials {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 2rem 0rem;
+    }
+
+    .socials a {
+        margin: 1rem 0rem;
     }
 }
